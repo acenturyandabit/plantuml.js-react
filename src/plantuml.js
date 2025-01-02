@@ -9,7 +9,7 @@ export const makePlantuml = async (cheerpjPath = "/app") => {
   // to make cjcall work, first we load the java package like this
   await cheerpjRunMain(
     "com.plantuml.api.cheerpj.v1.RunInit",
-    `${cheerpjPath}/plantuml-core.jar`,
+    `${cheerpjPath}/plantuml.jar`,
     `${cheerpjPath}/`,
   );
 
@@ -151,7 +151,7 @@ const _preloadPlantumlFiles = async (urlBasePathForFiles) => {
   // just do explicit fetch here for further cache hits
   // this code may evolve into bundling all resource files and pass it to cheerpj
   return await Promise.all([
-    fetch(`${urlBasePathForFiles}/plantuml-core.jar.js`),
-    fetch(`${urlBasePathForFiles}/plantuml-core.jar`),
+    fetch(`${urlBasePathForFiles}/plantuml.jar.js`),
+    fetch(`${urlBasePathForFiles}/plantuml.jar`),
   ]);
 };
